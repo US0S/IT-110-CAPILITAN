@@ -1,0 +1,160 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Layout */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+  color: #222;
+  font-family: Arial, sans-serif;
+}
+
+h1,
+h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+h1,
+h2 {
+  color: #222;
+}
+
+header h1 {
+  color: white;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav a {
+  display: inline-block;
+  margin: 0 0.35rem;
+  padding: 0.5rem 0.75rem;
+  background-color: rgb(75, 75, 75);
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #5a6693;
+}
+
+main {
+  flex: 1;
+  padding: 2rem 1rem;
+}
+
+/* Components */
+.card {
+  width: 500px;
+  max-width: 100%;
+  margin: 0 auto 1rem;
+  padding: 1rem;
+  border: 2px solid #d0d0d0;
+  border-radius: 8px;
+  background-color: #f4f4f4;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* With border-box the .card total rendered width is 500px, including its
+   32px of padding and 4px of borders. */
+
+.intro {
+  color: #555;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.intro::first-letter {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#about {
+  position: relative;
+  border-color: #008b8b;
+  background-color: rgba(0, 255, 255, 0.12);
+}
+
+#about::after {
+  content: "ABOUT";
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  background-color: #008b8b;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.card p {
+  margin: 0.5rem 0;
+}
+
+.skills-list {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.skills-list > li {
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background-color: #d9eaf7;
+  color: #174a70;
+  list-style: none;
+}
+
+.hide-none {
+  display: none;
+}
+
+.hide-visibility {
+  visibility: hidden;
+}
+
+/* display:none removes the paragraph and its space,and visibility:hidden hides
+   it while its keep space in the layout. */
+
+.scroll-box {
+  height: 120px;
+  overflow: auto;
+}
+
+footer {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #333;
+  color: white;
+  text-align: center;
+}
+
+/*
+Reflection
+1. The header h1 rule wins because it is more specific than the grouped h1, h2
+   rule. In other wordds the specific the selector takes priority over source order when the declarations
+   conflict.
+2. With content-box, the rendered width would be 500px + 16px + 16px + 2px +
+   2px = 536px also the padding and border are added outside the 500px content width.
+3. I would choose visibility:hidden when the item should be invisible but the
+   surrounding layout should keep its space because it is useful when hiding it
+   temporarily without causing neighboring content to shift.
+*/
